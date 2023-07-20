@@ -1,18 +1,18 @@
 package co.gabrielmiranda.bank;
 
 public class Account {
-
+    private static final int MAX_LENGTH = 12;
     private String ag;
     private String cc;
     private String name;
     private double balance;
-
-    private static final int MAX_LENGTH = 12;
+    private Log logger;
 
     public Account(String ag, String cc, String name) {
         this.ag = ag;
         this.cc = cc;
         setName(name);
+        logger = new Log();
     }
 
     public void setName(String name) {
@@ -25,15 +25,23 @@ public class Account {
 
     public void deposit(double value) {
         balance += value;
+        logger.out("DEPOSITO - R$ " + value + " Sua conta agora é de R$: " + balance);
     }
 
     public boolean withDraw(double value) {
         if (balance < value) {
+            logger.out("SAQUE - R$ " + value + " Seu salto atual é de R$: " + balance);
             return false;
         }
         balance -= value;
-        System.out.println("valor a retirar: " + value + ", total na conta agora é: " + balance);
+        logger.out("SAQUE - R$ " + value + " Sua conta agora é de R$: " + balance);
         return true;
+    }
+
+    @Override
+    public String toString() {
+        String result = "AGENCIA: " + this.ag + "/CC: " + this.cc + " do " + this.name + " possui: R$ " + balance;
+        return result;
     }
 
 }

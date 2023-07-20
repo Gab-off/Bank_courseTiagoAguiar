@@ -2,8 +2,7 @@ package co.gabrielmiranda.bank;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Olá mundo");
-
+        
         Account account = new Account("0001", "1234", "Seu Barriga");
 
         boolean succeed = account.withDraw(200.0);
@@ -17,15 +16,12 @@ public class App {
 
         if (!account.withDraw(200)) {
             System.out.println("Voce nao tem saldo suficiente para sacar");
-        } else {
-            System.out.println("Saque efetuado! Obrigado");
         }
 
         if (!account.withDraw(200)) {
-            System.out.println("Voce nao tem saldo suficiente para sacar, verifique o extrato");
-        } else {
-            System.out.println("Saque efetuado! Obrigado");
+            System.out.println("Voce nao tem saldo suficiente para sacar");
         }
-    }
 
+        System.out.println(account);
+    }
 }
