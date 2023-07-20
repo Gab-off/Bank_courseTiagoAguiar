@@ -22,7 +22,7 @@ public class App {
         }
 
         if (!account.withDraw(200)) {
-            System.out.println("Voce nao tem saldo suficiente para sacar");
+            System.out.println("Voce nao tem saldo suficiente para sacar, verifique o extrato");
         } else {
             System.out.println("Saque efetuado! Obrigado");
         }
