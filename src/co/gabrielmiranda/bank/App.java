@@ -1,5 +1,6 @@
 package co.gabrielmiranda.bank;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -15,16 +16,24 @@ public class App {
                 System.out.println("Digite o seu nome:");
                 String name = scanner.nextLine();
                 Account account = santander.generateAccount(name);
-                System.out.println(account);
+                santander.insertAccount(account);
+
+                operateAccount(account);
             } else if (op.equals("E")) {
                 break;
             } else {
                 System.out.println("Comando inválido, tente novamente");
             }
         }
+        List<Account> accountList = santander.getAccounts();
+        accountList.forEach(System.out::println);
 
+        santander.outputTotal();
+        scanner.close();
+    }
 
-        Account account = new Account("0001", "1234", "Seu Barriga");
+    static void operateAccount(Account account) {
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("O que deseja fazer? D=Deposito, S=Saque, E=Sair da conta");
@@ -46,6 +55,5 @@ public class App {
             }
             scanner = new Scanner(System.in);
         }
-        scanner.close();
     }
 }

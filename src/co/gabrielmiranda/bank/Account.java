@@ -2,8 +2,8 @@ package co.gabrielmiranda.bank;
 
 public class Account {
     private static final int MAX_LENGTH = 12;
-    private String ag;
-    private String cc;
+    private final String ag;
+    private final String cc;
     private String name;
     private double balance;
     private Log logger;
@@ -38,10 +38,14 @@ public class Account {
         return true;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
     @Override
     public String toString() {
-        String result = "AGENCIA: " + this.ag + "/CC: " + this.cc + " do " + this.name + " possui: R$ " + balance;
-        return result;
+         return "AGENCIA: " + this.ag + "/CC: " + this.cc + " do " + this.name + " possui: R$ " + balance;
+
     }
 
 }
