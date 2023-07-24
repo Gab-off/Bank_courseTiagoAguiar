@@ -53,6 +53,7 @@ public class App {
             } else {
                 System.out.println("Comando inválido, tente novamente!");
             }
+
             scanner = new Scanner(System.in);
         }
     }
